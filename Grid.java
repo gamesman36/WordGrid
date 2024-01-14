@@ -25,7 +25,21 @@ public class Grid {
 		char c = (char)(r.nextInt(26) + 'a');
 		return c;
 	}
-	
+
+	public void printGrid() {
+		for (int i = size - 1; i >= 0; i--) {
+			for (int j = 0; j < size; j++) {
+				for(Point point : points) {
+					if(point.getXValue() == i && point.getYValue() == j) {
+						System.out.print(point.getContent() + " ");
+						break;
+					}
+				}
+			}
+			System.out.println();
+		}
+	}
+
 	public ArrayList<Point> getPoints() {
 		return points;
 	}
