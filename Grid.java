@@ -40,6 +40,30 @@ public class Grid {
 		}
 	}
 
+	public Point walkGrid(int xValue, int yValue, String direction, Grid grid) {
+		switch(direction) {
+			case "up":
+				yValue++;
+				break;
+			case "down":
+				yValue--;
+				break;
+			case "left":
+				xValue--;
+				break;
+			case "right":
+				xValue++;
+				break;
+		}
+
+		for(Point point : grid.getPoints()) {
+			if(point.getXValue() == xValue && point.getYValue() == yValue)
+				return point;
+		}
+
+		return new Point(0,0,'x');
+	}
+
 	public ArrayList<Point> getPoints() {
 		return points;
 	}
